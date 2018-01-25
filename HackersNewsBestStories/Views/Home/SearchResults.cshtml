@@ -1,0 +1,27 @@
+﻿@model HackersNewsBestStories.Models.SearchResultViewModel
+@{
+
+	ViewBag.Title = "Search Results for ";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var SearchedOn = new string[] { "Title", "Author", "StoryID" };
+}
+
+<h2>@ViewBag.Title @SearchedOn[Model.SearchOption] - @Model.SearchText</h2>
+@{if (Model.Results != null && Model.Results.Count > 0)
+	{
+	<table>
+		<tr><th>Title</th><th>Author</th><th>Cached</th></tr>
+		@foreach (var result in Model.Results)
+		{
+			<tr>
+				<td>@result.title</td>
+				<td>@result.by</td>
+				<td>
+					@if (result.cached)
+					{ <span>*</span> }
+				</td>
+			</tr>
+		}
+	</table>
+	}
+}

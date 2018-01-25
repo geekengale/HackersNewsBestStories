@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HackersNewsBestStories.Models.HackerNewsDetailsViewModel>
+
+<div>
+	<div>
+		<span>Pages</span>
+	@{
+		for (var i = 1; i <= (int)ViewData["pages"]; i++)
+		{
+			<span>@Html.ActionLink((i).ToString(), "Index", "Home", new { page = i }, null)</span>
+		}
+	}
+	</div>
+	<br/>
+	<table>
+		<tr><th>Title <sub>Entries marked with <b>*</b> are pulled from cache.</sub></th><th>Author</th><th>Cached</th></tr>
+		@{
+			foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.title</td>
+					<td>@item.by</td>
+					<td align="center">@if (item.cached) { <span>*</span> }</td>
+				</tr>
+			}
+		}
+	</table>
+</div>

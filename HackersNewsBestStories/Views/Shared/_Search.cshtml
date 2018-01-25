@@ -1,0 +1,10 @@
+﻿<div class="col-sm-5">
+	@using (Html.BeginForm("SearchResults", "Home"))
+{
+	<label class="navbar-brand">Search <input class="form-control" type="text" name="SearchText" /></label>
+	<lable class="navbar-brand">Title <input type="radio" name="SearchOption" value="0" checked /></lable>
+	<lable class="navbar-brand">Author <input type="radio" name="SearchOption" value="1" /></lable>
+	<lable class="navbar-brand">ID <input type="radio" name="SearchOption" value="2" /></lable>
+	<input class="glyphicon-search" id="submit" type="submit" value="Submit" />
+}
+</div>
